@@ -3,26 +3,15 @@ package rest.web.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import rest.model.Role;
 import rest.model.User;
 import rest.service.RoleService;
 import rest.service.UserService;
-
-import javax.validation.Valid;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 
 @RestController
-public class UserController {
+public class RestControllers {
 
     @Autowired
     private UserService userService;
@@ -33,17 +22,7 @@ public class UserController {
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public UserController() {
-    }
-
-    @GetMapping(value = {"/", "/home"})
-    public String homePage(Model model) {
-        if (SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().anyMatch(a -> a.toString().contains("ROLE_ADMIN"))) {
-            model.addAttribute("usersList", userService.listUsers());
-            model.addAttribute("newUser", new User());
-            model.addAttribute("allRoles", roleService.listRoles());
-        }
-        return "home";
+    public RestControllers() {
     }
 
     @GetMapping("/users")
@@ -67,8 +46,8 @@ public class UserController {
     }
 
     @PostMapping(value = "/users", consumes={"application/json"})
-    public ResponseEntity<?> create(@RequestBody User user) {
-        userService.save(user);
+    public ResponseEntity<?> create(@RequestBody User newUser) {
+        userService.save(newUser);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
