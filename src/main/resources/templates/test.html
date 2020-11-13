@@ -1,52 +1,160 @@
-<!DOCTYPE HTML>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:type="http://www.w3.org/1999/xhtml">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+/*      event.preventDefault();
+var unindexed_array = $(form).serializeArray();
+var indexed_array = {};
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+$.map(unindexed_array, function (n, i) {
+indexed_array[n['name']] = n['value'];
+});
+console.log(JSON.stringify(indexed_array));
+$(form).each(function () {
+this.reset();
+});*/
+
+/*chex roles checkbox*/
+
+/*         if (document.getElementById('RoleAdminCheckNew').checked) {
+console.log("Admin cheCked");
+indexed_array[6]= "\"roles\":[{\"id\":2,\"name\":\"ROLE_ADMIN\",\"authority\":\"ROLE_ADMIN\"}]"
+}*/
+
+/*       const checkboxes = document.querySelectorAll(`input[name="roles"]:checked`);
+let values = [];
+checkboxes.forEach((checkbox) => {
+values.push(checkbox.value);
+});
+console.log(values);
+
+console.log("AFTER ROLES");
+console.log(values);
+
+//console.log(JSON.stringify(indexed_array));
+console.log("end AFTER ROLES");
+
+var jsonData = JSON.stringify(indexed_array);
+*/
 
 
-<body>
-<button class="btn btn-success mr-4" id="getUsers">Get JSON</button>
+/*function checkboxRoles() {
+var x = document.getElementById("RoleAdminCheckNew").value;
+document.getElementById("demo").innerHTML = x;
 
-<table id="records_table" border='1'>
-    <tr>
-        <th>username</th>
-        <th>lastName</th>
-        <th>email</th>
-    </tr>
-</table>
+var x = document.getElementById("RoleUserCheckNew").value;
+document.getElementById("demo").innerHTML = x;
+}*/
 
-<script>
+/*async function postData(url = '', data = {}) {
+const response = await fetch(url, {
+method: 'POST',
+mode: 'cors',
+cache: 'no-cache',
+credentials: 'same-origin',
+headers: {
+'Content-Type': 'application/json'
+},
+redirect: 'follow',
+referrerPolicy: 'no-referrer',
+body: JSON.stringify(data)
+});
+return await response.json();
+}*/
 
-    document.getElementById('getUsers').addEventListener('click', getUsers);
+/*Delete user*/
 
-    async function getUsers() {
+/*        function onDeleteUser() {
 
-        let response = await fetch('http://localhost:8080/users');
-        let json;
-        if (response.ok) {
-            json = await response.json();
-            var trHTML = '';
-            $.each(json, function (i, item) {
-                trHTML += '<tr><td>' + item.username + '</td><td>' + item.lastName + '</td><td>' + item.email + '</td></tr>';
-            });
-            $('#records_table').append(trHTML);
-        } else {
-            alert("Ошибка HTTP: " + response.status);
-        }
-    }
+$("#book-table").on("click", ".js-delete-book", loadForm);
+$("#modal-book").on("submit", ".js-book-delete-form", saveForm);
 
-</script>
-</body>
+$.ajax({
+type: "DELETE",
+url: "http://localhost:8080/users/" + ,
+data: JSON.stringify(indexed_array),
+contentType: "application/json; charset=utf-8",
+dataType: "json",
+});
+}*/
+
+
+
+
+/*
+$(function () {
+$(".btnedit").click(function () {
+//get data from table row
+var id = $(this).parent().prev().prev().prev().prev().prev().prev().prev().text();
+var username = $(this).parent().prev().prev().prev().prev().prev().prev().text();
+var firstName = $(this).parent().prev().prev().prev().prev().prev().text();
+var lastName = $(this).parent().prev().text();
+var age = $(this).parent().prev().text();
+var email = $(this).parent().prev().text();
+
+
+//assign to value for input box inside modal
+$("#txt_item").val(item);
+$("#txt_Price1").val(p1);
+$("#txt_Price2").val(p2);
+
+//open modal
+$("#myModal").modal();
+
+$("#btnsave").click(function () {
+//make ajax request to update data
+
+//and in ajax success callback function
+//hide modal
+//$("#myModal").modal("hide")
+})
+})
+})
+
+EDIT
+
+var $modal = $('#editor-modal'),
+$editor = $('#editor'),
+$editorTitle = $('#editor-title'),
+ft = FooTable.init('#editing-example', {
+editing: {
+enabled: true,
+addRow: function(){
+$modal.removeData('row');
+$editor[0].reset();
+$editorTitle.text('Add a new row');
+$modal.modal('show');
+},
+editRow: function(row){
+var values = row.val();
+$editor.find('#id').val(values.id);
+$editor.find('#firstName').val(values.firstName);
+$editor.find('#lastName').val(values.lastName);
+$editor.find('#jobTitle').val(values.jobTitle);
+$editor.find('#startedOn').val(values.startedOn);
+$editor.find('#dob').val(values.dob);
+
+$modal.data('row', row);
+$editorTitle.text('Edit row #' + values.id);
+$modal.modal('show');
+},
+deleteRow: function(row){
+if (confirm('Are you sure you want to delete the row?')){
+row.delete();
+}
+}
+}
+}),
+uid = 10;
+
+$editor.on('submit', function(e){
+if (this.checkValidity && !this.checkValidity()) return;
+e.preventDefault();
+var row = $modal.data('row'),
+values = {
+id: $editor.find('#id').val(),
+username: $editor.find('#username').val(),
+firstName: $editor.find('#firstName').val(),
+lastName: $editor.find('#lastName').val(),
+age: $editor.find('#age').val(),
+email: $editor.find('#email').val(),
+};
+$modal.modal('hide');
+});*/

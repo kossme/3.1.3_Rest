@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import rest.model.Role;
 import rest.model.User;
 import rest.service.RoleService;
 import rest.service.UserService;
@@ -25,6 +26,7 @@ public class RestControllers {
     public RestControllers() {
     }
 
+    @CrossOrigin(origins = "http://localhost:8080/users")
     @GetMapping("/users")
     public ResponseEntity<List<User>> listAllUsers() {
         List<User> users = userService.listUsers();
@@ -34,6 +36,16 @@ public class RestControllers {
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080/users")
+    @GetMapping("/roles")
+    public ResponseEntity<List<Role>> listAllRoles() {
+        List<Role> roles = roleService.listRoles();
+        return (roles != null && !roles.isEmpty())
+                ? new ResponseEntity<>(roles, HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @CrossOrigin(origins = "http://localhost:8080/users")
     @GetMapping("/users/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
         User user;
@@ -45,12 +57,14 @@ public class RestControllers {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080/users")
     @PostMapping(value = "/users", consumes={"application/json"})
     public ResponseEntity<?> create(@RequestBody User newUser) {
         userService.save(newUser);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    @CrossOrigin(origins = "http://localhost:8080/users")
     @PutMapping(value = "/users/{id}")
     public ResponseEntity<?> update(@PathVariable(name = "id") Long id, @RequestBody User user) {
         try {

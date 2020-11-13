@@ -1,33 +1,25 @@
-
 <div class="container">
     <div class="row">
         <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5 mx-auto text-center form">
-
- <!--           <form onsubmit='return onSubmitNewUser(this)'>
-                <input name='user' placeholder='user'><br>
-                <input name='password' type='password' placeholder='password'><br>
-                <button type='submit'>Try</button>
-            </form>
--->
-            <form onsubmit='return onSubmitNewUser(this)' class="contact-form justify-content-center" name="NewUserForm" method="POST">
-                        <label for="username">username</label>
-                        <input class="form-control-sm" type="text" id="username" name="username">
-                        <label for="firstName">First name</label>
-                        <input class="form-control-sm" type="text" id="firstName" name="firstName">
-                        <label for="lastName">Last Name</label>
-                        <input class="form-control-sm" type="text" id="lastName" name="lastName">
-                        <label for="age">Age</label>
-                        <input class="form-control-sm" type="text" id="age" name="age">
-                        <label for="email">email</label>
-                        <input class="form-control-sm" type="text" id="email" name="email">
-                        <label for="password">password</label>
-                        <input class="form-control-sm" type="text" id="password" name="password">
-<!--                        <div class="custom-control custom-switch" th:each="role : ${allRoles}">
-                        <input class="custom-switch-sm" type="checkbox" th:field="*{roles}" th:value="${role.id}" id="a1"/>
-                        <label for="a1" class="custom-switch-sm" th:text="${role.name}"></label>
-                    </div>-->
-                    <br>
-                    <button class="btn btn-primary justify-content-center mx-auto" type="submit"  >Submit form</button> <!--onclick="submitformNewUser()"-->
+            <form onsubmit='return onSubmitNewUser(this)' class="contact-form justify-content-center" id="newUserForm" name="NewUserForm"
+                  method="POST">
+                <label for="username">username</label>
+                <input class="form-control-sm" type="text" id="username" name="username">
+                <label for="firstName">First name</label>
+                <input class="form-control-sm" type="text" id="firstName" name="firstName">
+                <label for="lastName">Last Name</label>
+                <input class="form-control-sm" type="text" id="lastName" name="lastName">
+                <label for="age">Age</label>
+                <input class="form-control-sm" type="text" id="age" name="age">
+                <label for="email">email</label>
+                <input class="form-control-sm" type="text" id="email" name="email">
+                <label for="password">password</label>
+                <input class="form-control-sm" type="text" id="password" name="password">
+                <label for="RoleAdminCheckNew">Admin</label>
+                <input type="checkbox" id="RoleAdminCheckNew" name="[ROLE_ADMIN]">
+                <label for="RoleUserCheckNew">User</label>
+                <input type="checkbox" id="RoleUserCheckNew" name="[ROLE_USER]">
+                <button class="btn btn-primary justify-content-center mx-auto" type="submit">Submit form</button>
             </form>
         </div>
     </div>
