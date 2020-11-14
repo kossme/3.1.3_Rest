@@ -80,174 +80,7 @@
                                                 <th scope="col">Edit</th>
                                                 <th scope="col">Delete</th>
                                             </tr>
-<!--
-
-                                                                                            <div class="modal fade" id="deleteUserModal" role="dialog"
-                                                                                                 th:attrappend="id=${user.id}">
-                                                                                                <div class="modal-dialog">
-
-
-                                                                                                    <div class="modal-content">
-                                                                                                        <div class="modal-header">
-                                                                                                            <button type="button" class="close"
-                                                                                                                    data-dismiss="modal">&times;
-                                                                                                            </button>
-
-                                                                                                        </div>
-                                                                                                        <div class="modal-body justify-content-center">
-
-                                                                                                            &lt;!&ndash;Form code start from here  &ndash;&gt;
-                                                                                                            &lt;!&ndash; Form Name &ndash;&gt;
-                                                                                                            <div class="container">
-                                                                                                                <div class="row">
-                                                                                                                    <div class="col-md-6 col-sm-7 mx-auto text-center form">
-                                                                                                                        <h2>Delete user</h2>
-                                                                                                                        <form class="form-horizontal justify-content-center"
-                                                                                                                              action="#"
-                                                                                                                              th:action="@{'/delete/' + ${user.id}}">
-                                                                                                                            <fieldset>
-
-                                                                                                                                <div class="form-group">
-                                                                                                                                    <label class="control-label"
-                                                                                                                                           for="id">id</label>
-                                                                                                                                    <div>
-                                                                                                                                        <input id="id" name="id"
-                                                                                                                                               type="text"
-                                                                                                                                               placeholder="id"
-                                                                                                                                               class="form-control input-md"
-                                                                                                                                               th:value="${user.id}"
-                                                                                                                                               readonly>
-
-                                                                                                                                    </div>
-                                                                                                                                </div>
-
-                                                                                                                                &lt;!&ndash; Text input&ndash;&gt;
-                                                                                                                                <div class="form-group">
-                                                                                                                                    <label class="control-label"
-                                                                                                                                           for="username">Username</label>
-                                                                                                                                    <div>
-                                                                                                                                        <input id="username"
-                                                                                                                                               name="username"
-                                                                                                                                               type="text"
-                                                                                                                                               placeholder="username"
-                                                                                                                                               class="form-control input-md"
-                                                                                                                                               th:value="${user.username}"
-                                                                                                                                               readonly>
-                                                                                                                                    </div>
-                                                                                                                                </div>
-
-                                                                                                                                &lt;!&ndash; Text input&ndash;&gt;
-                                                                                                                                <div class="form-group">
-                                                                                                                                    <label class="control-label"
-                                                                                                                                           for="firstName">First
-                                                                                                                                        Name</label>
-                                                                                                                                    <div>
-                                                                                                                                        <input id="firstName"
-                                                                                                                                               name="firstName"
-                                                                                                                                               type="text"
-                                                                                                                                               placeholder="firstName"
-                                                                                                                                               class="form-control input-md"
-                                                                                                                                               th:value="${user.firstName}"
-                                                                                                                                               readonly>
-                                                                                                                                    </div>
-                                                                                                                                </div>
-
-                                                                                                                                &lt;!&ndash; Text input&ndash;&gt;
-                                                                                                                                <div class="form-group">
-                                                                                                                                    <label class="control-label"
-                                                                                                                                           for="lastName">Last Name
-                                                                                                                                    </label>
-                                                                                                                                    <div>
-                                                                                                                                        <input id="lastName"
-                                                                                                                                               name="lastName"
-                                                                                                                                               type="text"
-                                                                                                                                               placeholder="lastName"
-                                                                                                                                               class="form-control input-md"
-                                                                                                                                               th:value="${user.lastName}"
-                                                                                                                                               readonly>
-                                                                                                                                    </div>
-                                                                                                                                </div>
-
-                                                                                                                                &lt;!&ndash; Text input&ndash;&gt;
-                                                                                                                                <div class="form-group">
-                                                                                                                                    <label class="control-label"
-                                                                                                                                           for="age">Age
-                                                                                                                                    </label>
-                                                                                                                                    <div>
-                                                                                                                                        <input id="age" name="age"
-                                                                                                                                               type="text"
-                                                                                                                                               placeholder="age"
-                                                                                                                                               class="form-control input-md"
-                                                                                                                                               th:value="${user.age}"
-                                                                                                                                               readonly>
-                                                                                                                                    </div>
-                                                                                                                                </div>
-
-                                                                                                                                &lt;!&ndash; Text input&ndash;&gt;
-                                                                                                                                <div class="form-group">
-                                                                                                                                    <label class="control-label"
-                                                                                                                                           for="email">email</label>
-                                                                                                                                    <div>
-                                                                                                                                        <input id="email"
-                                                                                                                                               name="email"
-                                                                                                                                               type="text"
-                                                                                                                                               placeholder="email"
-                                                                                                                                               class="form-control input-md"
-                                                                                                                                               th:value="${user.email}"
-                                                                                                                                               readonly>
-                                                                                                                                    </div>
-                                                                                                                                </div>
-
-                                                                                                                                &lt;!&ndash; Text input&ndash;&gt;
-                                                                                                                                <div class="form-group">
-                                                                                                                                    <label class="control-label"
-                                                                                                                                           for="password">Password</label>
-                                                                                                                                    <div>
-                                                                                                                                        <input id="password"
-                                                                                                                                               name="password"
-                                                                                                                                               type="password"
-                                                                                                                                               class="form-control input-md"
-                                                                                                                                               th:value="${user.password}"
-                                                                                                                                               readonly>
-                                                                                                                                    </div>
-                                                                                                                                </div>
-
-                                                                                                                                &lt;!&ndash; Button &ndash;&gt;
-                                                                                                                                <div class="form-group">
-                                                                                                                                    <label class="control-label"
-                                                                                                                                           for="submit"></label>
-                                                                                                                                    <div>
-                                                                                                                                        <button id="submit"
-                                                                                                                                                name="delete"
-                                                                                                                                                class="btn btn-danger">
-                                                                                                                                            Delete
-                                                                                                                                        </button>
-                                                                                                                                    </div>
-                                                                                                                                </div>
-
-                                                                                                                            </fieldset>
-                                                                                                                        </form>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-
-                                                                                                        <div class="modal-footer">
-                                                                                                            <button type="button" class="btn btn-default"
-                                                                                                                    data-dismiss="modal">Close
-                                                                                                            </button>
-                                                                                                        </div>
-
-
-                                                                                                    </div>
-
-                                                                                                </div>
-                                                                                            </div>
-                                            -->
                                         </table>
-
-
-
                                     </div>
                                 </div>
                             </div>
@@ -260,8 +93,6 @@
 
                                         <!--Add new user block-->
                                         <th:block th:include="/_newUserBlock">Add new</th:block>
-
-
 
                                     </div>
                                 </div>
@@ -381,30 +212,30 @@
             "\"lastName\":\"" + document.getElementById("lastName").value + "\"," +
             "\"age\":" + document.getElementById("age").value + "," +
             "\"email\":\"" + document.getElementById("email").value + "\"," +
-            "\"password\":\"" + document.getElementById("password").value + "\",";
+            "\"password\":\"" + document.getElementById("password").value + "\"";
         if (document.getElementById('RoleAdminCheckNew').checked && document.getElementById('RoleUserCheckNew').checked) {
             jsonFromNewForm +=
-                "\"roles\":" +
+                ",\"roles\":" +
                 "[{\"id\":1," +
                 "\"name\":\"ROLE_USER\"" +
-                //"\"authority\":\"ROLE_USER\"" +
                 "}," +
                 "{\"id\":2," +
                 "\"name\":\"ROLE_ADMIN\"" +
-                //"\"authority\":\"ROLE_ADMIN\"" +
                 "}]}";
         } else if (document.getElementById('RoleUserCheckNew').checked) {
             jsonFromNewForm +=
-                "\"roles\":" +
+                ",\"roles\":" +
                 "[{\"id\":1," +
                 "\"name\":\"ROLE_USER\"" +
                 "}]}";
         } else if (document.getElementById('RoleAdminCheckNew').checked) {
             jsonFromNewForm +=
-                "\"roles\":" +
+                ",\"roles\":" +
                 "[{\"id\":2," +
                 "\"name\":\"ROLE_ADMIN\"" +
                 "}]}";
+        } else {
+            jsonFromNewForm += "}";
         }
         console.log(jsonFromNewForm);
 
@@ -420,7 +251,9 @@
         })();
 
         $('#newUserForm').trigger("reset");
+        $("#nav-users-table").trigger("click");
         refreshTable();
+
     }
 
     /*EDIT user dialog*/
@@ -435,6 +268,8 @@
         $("#modal-edit-lastName").val(cells.item(3).innerHTML)
         $("#modal-edit-age").val(cells.item(4).innerHTML)
         $("#modal-edit-email").val(cells.item(5).innerHTML)
+        $("#modal-edit-password").val("")
+
 
         document.getElementById("RoleAdminEdit").checked = cells.item(6).innerHTML.includes("ROLE_ADMIN");
         document.getElementById("RoleUserEdit").checked = cells.item(6).innerHTML.includes("ROLE_USER");
@@ -443,64 +278,70 @@
     /*EDIT user confirmation*/
 
 
-    async function onSubmitEditUser(form) {
+    async function onSubmitEditUser() {
         event.preventDefault()
-        console.log(document.getElementById("username").value);
-        var jsonFromNewForm =
-            "{\"username\":\"" + document.getElementById("modal-edit-username").value + "\"," +
+        console.log("You've just edited user " + document.getElementById("modal-edit-username").value);
+        var jsonFromEditForm =
+            "{\"id\":\"" + document.getElementById("modal-edit-id").value + "\"," +
+            "\"username\":\"" + document.getElementById("modal-edit-username").value + "\"," +
             "\"firstName\":\"" + document.getElementById("modal-edit-firstname").value + "\"," +
             "\"lastName\":\"" + document.getElementById("modal-edit-lastName").value + "\"," +
             "\"age\":" + document.getElementById("modal-edit-age").value + "," +
             "\"email\":\"" + document.getElementById("modal-edit-email").value + "\"," +
-            "\"password\":\"" + document.getElementById("modal-edit-password").value + "\",";
+            "\"password\":\"" + document.getElementById("modal-edit-password").value + "\"";
         if (document.getElementById('RoleAdminEdit').checked && document.getElementById('RoleUserEdit').checked) {
-            jsonFromNewForm +=
-                "\"roles\":" +
+            jsonFromEditForm +=
+                ",\"roles\":" +
                 "[{\"id\":1," +
                 "\"name\":\"ROLE_USER\"" +
-                //"\"authority\":\"ROLE_USER\"" +
                 "}," +
                 "{\"id\":2," +
                 "\"name\":\"ROLE_ADMIN\"" +
-                //"\"authority\":\"ROLE_ADMIN\"" +
                 "}]}";
         } else if (document.getElementById('RoleUserEdit').checked) {
-            jsonFromNewForm +=
-                "\"roles\":" +
+            jsonFromEditForm +=
+                ",\"roles\":" +
                 "[{\"id\":1," +
                 "\"name\":\"ROLE_USER\"" +
                 "}]}";
         } else if (document.getElementById('RoleAdminEdit').checked) {
-            jsonFromNewForm +=
-                "\"roles\":" +
+            jsonFromEditForm +=
+                ",\"roles\":" +
                 "[{\"id\":2," +
                 "\"name\":\"ROLE_ADMIN\"" +
                 "}]}";
+        } else {
+            jsonFromEditForm += "}";
         }
-        console.log(jsonFromNewForm);
+        console.log(jsonFromEditForm);
 
         await (async () => {
-            const rawResponse = await fetch('http://localhost:8080/users' + , {
+            const rawResponse = await fetch('http://localhost:8080/users/' + document.getElementById("modal-edit-id").value, {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: jsonFromNewForm
-            });
+                body: jsonFromEditForm
+            })
+                .catch(err => console.log(err));
         })();
 
-        $('#newUserForm').trigger("reset");
+        $("#edit-modal").modal('hide');
         refreshTable();
     }
 
     /*DELETE user dialog*/
 
+    var rowToDelete;
+
     function deleteBtnClick(idrow) {
+        rowToDelete = idrow;
         console.log("delete....")
         $("#delete-modal").modal();
         var cells = document.getElementById("allUsersTable").rows.item(idrow).cells;
 
+        $("#modal-delete-id").val(cells.item(0).innerHTML)
         $("#modal-delete-username").val(cells.item(1).innerHTML)
         $("#modal-delete-firstname").val(cells.item(2).innerHTML)
         $("#modal-delete-lastName").val(cells.item(3).innerHTML)
@@ -511,6 +352,18 @@
         document.getElementById("RoleUserDelete").checked = cells.item(6).innerHTML.includes("ROLE_USER");
     }
 
+    async function onSubmitDeleteUser() {
+
+        await (async () => {
+            const rawResponse = await fetch('http://localhost:8080/users/' + document.getElementById("modal-delete-id").value, {
+                method: 'DELETE',
+            })
+                .catch(err => console.log(err));
+        })();
+        console.log("deleted id: " + document.getElementById("modal-delete-id").value);
+        $("#delete-modal").modal('hide');
+        refreshTable();
+    }
 
 </script>
 </html>
