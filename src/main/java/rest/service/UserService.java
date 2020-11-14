@@ -97,10 +97,6 @@ public class UserService implements UserDetailsService {
     }
 
     public void updateUser(User user) {
-        System.out.println(user);
-        System.out.println(user.getRoles());
-        Set<Role> roles = user.getRoles();
-        System.out.println(roles);
         userRepository.save(user);
     }
 
