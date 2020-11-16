@@ -97,6 +97,11 @@ public class UserService implements UserDetailsService {
     }
 
     public void updateUser(User user) {
+        if(user.getPassword().equals("") || user.getPassword()==null) {
+            user.setPassword(userRepository.findById(user.getId()).get().getPassword());
+        } else {
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        }
         userRepository.save(user);
     }
 
